@@ -1,0 +1,52 @@
+package com.studentjobs.service;
+
+import com.studentjobs.model.Job;
+import com.studentjobs.repository.JobRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+package com.studentjobs.service;
+import com.studentjobs.model.Job;
+import com.studentjobs.repository.JobRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class JobService {
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    public List<Job> getFeaturedJobs() {
+        return jobRepository.findByIsFeaturedTrue();
+    }
+
+    public List<Job> searchJobs(String keyword, String location) {
+        return jobRepository
+                .findByTitleContainingIgnoreCaseAndLocationContainingIgnoreCase(
+                        keyword, location);
+    }
+
+    // NEW METHOD
+    public List<Job> getAllJobs() {
+        return jobRepository.findAll();
+    }
+}
+
+@Service
+public class JobService {
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    public List<Job> getFeaturedJobs() {
+        return jobRepository.findByIsFeaturedTrue();
+    }
+
+    public List<Job> searchJobs(String keyword, String location) {
+        return jobRepository
+                .findByTitleContainingIgnoreCaseAndLocationContainingIgnoreCase(
+                        keyword, location);
+    }
+}
