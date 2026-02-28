@@ -1,0 +1,137 @@
+ 1. Create database
+ TABLE jobs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    location VARCHAR(100),
+    is_featured BOOLEAN
+);
+
+-- 4. Sample data (for testimysql> CREATE DATABASE studentjobs;
+itle, location, is_featured) VALUES
+('Software Developer', 'Kolkata', TRUE),
+('Marketing Executive', 'Delhi', TRUE),
+('Data Analyst', 'Mumbai', TRUE),
+('Web Intern', 'Bangalore', FALSE);Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql> -- 2. Use database
+mysql> USE studentjobs;
+Database changed
+mysql>
+mysql> -- 3. Jobs table
+mysql> CREATE TABLE jobs (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     title VARCHAR(100),
+    ->     location VARCHAR(100),
+    ->     is_featured BOOLEAN
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql>
+mysql> -- 4. Sample data (for testing frontend)
+mysql> INSERT INTO jobs (title, location, is_featured) VALUES
+    -> ('Software Developer', 'Kolkata', TRUE),
+    -> ('Marketing Executive', 'Delhi', TRUE),
+    -> ('Data Analyst', 'Mumbai', TRUE),
+    -> ('Web Intern', 'Bangalore', FALSE);
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE jobs ADD COLUMN salary VARCHAR(20);
+Query OK, 0 rows affected (0.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> -- Example data update
+mysql> UPDATE jobs SET salary='₹30000' WHERE title='Frontend Developer';
+Query OK, 0 rows affected (0.02 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> UPDATE jobs SET salary='₹25000' WHERE title='Graphic Designer';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> package com.studentjobs.model;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "jobs")
+public class Job {
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'package com.studentjobs.model' at line 1
+mysql>
+mysql> import jakarta.persistence.*;
+
+    @Id
+    @GeneratedValue(strERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'jakarta.persistence.*' at line 1
+ategy = Generatimysql>
+mysql> @Entity
+onType.IDENTITY)    -> @Table(name = "jobs")
+    -> public class Job {
+
+    private int    ->
+    ->     @Id
+    ->     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    ->     private int id;
+ "is_featured")
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@Entity
+@Table(name = "jobs")
+public class Job {
+
+    @Id
+    @GeneratedValue(st' at line 1
+mysql>
+mysql>     private String title;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'private String title' at line 1
+mysql>     private String location;
+tters
+    publicERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'private String location' at line 1
+mysql>
+mysql>     @Column(name = "is_featured")
+    ->     private boolean isFeatured;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@Column(name = "is_featured")
+    private boolean isFeatured' at line 1
+mysql>
+ }
+    public vomysql>     private String salary;  // NEW FIELD
+ing salary) {
+  ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'private String salary' at line 1
+    ->
+    ->     // Getters and Setters
+    ->     public String getSalary() {
+    ->         return salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '// NEW FIELD
+
+    // Getters and Setters
+    public String getSalary() {
+       ' at line 1
+mysql>     }
+    ->     public void setSalary(String salary) {
+    ->         this.salary = salary;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+    public void setSalary(String salary) {
+        this.salary = salary' at line 1
+mysql>     }
+    ->
+    ->     // ...existing getters/setters for title, location, isFeatured, id
+    -> }
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}
+
+    // ...existing getters/setters for title, location, isFeatured, id
+}' at line 1
+mysql> CREATE TABLE users (
+umar', 'ajay@example.com', 'password123', 'Student');    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     full_name VARCHAR(100) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     role VARCHAR(20) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.18 sec)
+
+mysql>
+mysql> -- Optional: add a test user
+mysql> INSERT INTO users (full_name, email, password, role) VALUES
+    -> ('Ajay Kumar', 'ajay@example.com', 'password123', 'Student');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>
